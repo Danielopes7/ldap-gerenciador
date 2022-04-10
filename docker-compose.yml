@@ -1,8 +1,8 @@
 version: "3.7"
 services:
   app:
-    container_name: app-cardapio
-    image: dimensao/siscardapio
+    container_name: app-ldap-gerenciador
+    image: ldap-gerenciador
     build:
       args:
         user: dockerd
@@ -17,7 +17,7 @@ services:
   nginx:
     image: nginx:1.17-alpine
     restart: unless-stopped
-    container_name: nginx-cardapio
+    container_name: nginx-ldap-gerenciador
     user: root
     ports:
       - 8021:80
@@ -29,7 +29,7 @@ services:
       - backend
   db:
     image: mysql
-    container_name: db-cardapio
+    container_name: db-ldap-gerenciador
     restart: unless-stopped
     ports:
       - 3306:3306
@@ -39,9 +39,9 @@ services:
       - backend
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: cardapio
-      MYSQL_USER: cardapio
-      MYSQL_PASSWORD: cardapio
+      MYSQL_DATABASE: ldap
+      MYSQL_USER: ldap
+      MYSQL_PASSWORD: ldap
 
 networks:
   backend:
