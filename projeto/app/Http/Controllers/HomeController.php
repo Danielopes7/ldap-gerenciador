@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Ldap\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $users2 = User::find('CN=Lucas Laerte Santos da Silva,OU=Civelefazenda,OU=Defensoria,DC=dpema,DC=br');
+        dd($users2);
         return view('home');
     }
 }
