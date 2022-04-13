@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ldap\User;
+use LdapRecord\Models\ActiveDirectory\Entry;
 
 class HomeController extends Controller
 {
@@ -24,8 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users2 = User::find('CN=Lucas Laerte Santos da Silva,OU=Civelefazenda,OU=Defensoria,DC=dpema,DC=br');
-        dd($users2);
-        return view('home');
+        /**
+         * uso a classe Entry para pegar todos os dados de uma determinada OU
+         */
+        $objects = Entry::in('OU=Supervisão Informatica,OU=Defensoria,DC=dpema,DC=br')->get();
+        return view('home', ['objects' => $objects] );
     }
 }
