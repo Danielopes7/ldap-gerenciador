@@ -17,13 +17,14 @@ class User extends Model
         'organizationalperson',
         'user',
     ];
-
+    /**
+     * Função para converter do tipo windows-int para datação legivel
+     * 
+     * @var int
+     */
     public function getAccountexpires( $value ){
         return date("d-m-Y H:i:s", $value/10000000 - 11644473600);
     }
 
-    public function getExistsAttribute( $value ){
-        return false;
-    }
 
 }
