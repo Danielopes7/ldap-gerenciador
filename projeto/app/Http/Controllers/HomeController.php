@@ -23,12 +23,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
         /**
          * uso a classe Entry para pegar todos os dados de uma determinada OU
          */
-        $objects = Entry::in('OU=Supervisão Informatica,OU=Defensoria,DC=dpema,DC=br')->get();
-        return view('home', ['objects' => $objects] );
+        $objects = Entry::in('dc=example,dc=com')->get();
+        return view('home', ['objects' => $objects, 'request' => $request->all] );
     }
 }
