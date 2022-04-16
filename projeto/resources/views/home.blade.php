@@ -30,7 +30,14 @@
         <td>Firefox 3.0</td>
         <td>Win 2k+ / OSX.3+</td>
         <td>1.9</td>
-        <td>A</td>
+        <td>
+            <a href="" class="btn btn-info btn-sm">
+                                        <i class="far fa-eye"></i>
+            </a>
+            <a href="" class="btn btn-info btn-sm" style="background-color: #28a745;border-color: #28a745;">
+                                        <i class="far fa-edit"></i>
+            </a>
+        </td>
         </tr><tr class="odd">
         <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
         <td>Firefox 3.0</td>
@@ -143,16 +150,8 @@
             "autoWidth": false,
             "responsive": true,
             "language": {
-                "infoFiltered":   "(filtrado de _MAX_ usuários totais)",
-                "infoEmpty":      "Mostrando 0 usuários",
-                "search":         "Buscar:",
-                "zeroRecords":    "Nenhum usuário encontrado",
-                "lengthMenu":     "Mostrar _MENU_ usuários",
-                "info": "Mostrando _START_ de _END_ de _TOTAL_ usuários totais",
-                "paginate" : {
-                    "previous": "Anterior",
-                    "next": "Próximo"
-                }
+                "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Portuguese-Brasil.json"
+
             }
             });
         });
