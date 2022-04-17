@@ -244,7 +244,7 @@ return [
         // ['header' => 'account_settings'],
         [
             'text' => 'Usuários',
-            'url'  => 'admin/settings',
+            'url'  => '/',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
