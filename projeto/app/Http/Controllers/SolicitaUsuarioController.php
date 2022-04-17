@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Solicitado;
+use App\Models\SolicitaUsuario;
 use Illuminate\Http\Request;
 
-class SolicitadoController extends Controller
+class SolicitaUsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class SolicitadoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Solicitado  $solicitado
+     * @param  \App\Models\SolicitaUsuario  $solicitaUsuario
      * @return \Illuminate\Http\Response
      */
-    public function show(Solicitado $solicitado)
+    public function show(SolicitaUsuario $solicitaUsuario)
     {
         //
     }
@@ -52,10 +52,10 @@ class SolicitadoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Solicitado  $solicitado
+     * @param  \App\Models\SolicitaUsuario  $solicitaUsuario
      * @return \Illuminate\Http\Response
      */
-    public function edit(Solicitado $solicitado)
+    public function edit(SolicitaUsuario $solicitaUsuario)
     {
         //
     }
@@ -64,10 +64,10 @@ class SolicitadoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Solicitado  $solicitado
+     * @param  \App\Models\SolicitaUsuario  $solicitaUsuario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Solicitado $solicitado)
+    public function update(Request $request, SolicitaUsuario $solicitaUsuario)
     {
         //
     }
@@ -75,10 +75,10 @@ class SolicitadoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Solicitado  $solicitado
+     * @param  \App\Models\SolicitaUsuario  $solicitaUsuario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Solicitado $solicitado)
+    public function destroy(SolicitaUsuario $solicitaUsuario)
     {
         //
     }

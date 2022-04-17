@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSolicitadosTable extends Migration
+class CreateSolicitaUsuariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateSolicitadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('solicitados', function (Blueprint $table) {
+        Schema::create('solicita_usuarios', function (Blueprint $table) {
             $table->id();
+            $table->string('nome','80');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateSolicitadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('solicitados');
+        Schema::dropIfExists('solicita_usuarios');
     }
 }
