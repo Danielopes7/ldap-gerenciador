@@ -44,7 +44,6 @@
             </td>
 
         @endfor --}}
-
         @foreach ( $objects as $object ) 
             @isset($object->displayname)
                 @if( $object->useraccountcontrol[0]== 512 )
@@ -74,6 +73,7 @@
                     
             @endisset 
         @endforeach
+        
     </tbody>
     </table>
     </div>

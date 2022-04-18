@@ -51,6 +51,7 @@
         </div>
     </form>
 </div>
+
 @stop
 
 @section('css')
@@ -59,5 +60,5 @@
 
 @section('js')
     <script> console.log('Hi!'); </script>
-
+    <script></script>
 @stop

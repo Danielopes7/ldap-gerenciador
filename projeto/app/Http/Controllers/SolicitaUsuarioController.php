@@ -14,7 +14,7 @@ class SolicitaUsuarioController extends Controller
      */
     public function index()
     {
-        return view('solicitacao.index');
+        return view('solicitacao.create');
     }
 
     /**
