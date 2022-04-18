@@ -28,7 +28,7 @@ class HomeController extends Controller
         /**
          * uso a classe Entry para pegar todos os dados de uma determinada OU
          */
-        $objects = Entry::in('dc=example,dc=com')->get();
+        $objects = Entry::in('OU=Supervisão Informatica,OU=Defensoria,DC=dpema,DC=br')->get();
         return view('home', ['objects' => $objects, 'request' => $request->all] );
     }
 }

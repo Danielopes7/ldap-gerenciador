@@ -21,12 +21,12 @@
             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Usuário de rede</th>
             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Cargo</th>
             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">E-mail</th>
-            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Departamento</th>
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Status</th>
             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Ações</th>
             </tr>
     </thead>
     <tbody>
-        @for ($i = 0; $i < 1000; $i++)
+        {{-- @for ($i = 0; $i < 100; $i++)
             
             </tr><tr class="even">
             <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
@@ -43,20 +43,24 @@
                 </a>
             </td>
 
-        @endfor
+        @endfor --}}
 
-        {{-- @foreach ( $objects as $object ) 
+        @foreach ( $objects as $object ) 
             @isset($object->displayname)
-                </tr><tr class="odd">
+                @if( $object->useraccountcontrol[0]== 512 )
+                    </tr><tr class="odd">
+                @else
+                    </tr><tr class="odd table-danger">   
+                @endif
                     <td>{{ $object->displayname[0] ?? ''}}</td>
                     <td>{{ $object->samaccountname[0] ?? ''}}</td>
                     <td>{{ $object->title[0] ?? ''}}</td>
                     <td>{{ $object->mail[0] ?? ''}}</td>
-                    <td>{{ $object->department[0] ?? ''}}</td> 
+                    {{-- <td>{{ $object->department[0] ?? ''}}</td>  --}}
                     @if( $object->useraccountcontrol[0]== 512 )
                         <td>Ativo</td>
                     @else
-                        <td>Inativo</td>
+                        <td>Inativo <i class="fas fa-user-times"></i></td>
                     @endif 
                     
                     <td style="display: flex;">
@@ -69,7 +73,7 @@
                     </td>
                     
             @endisset 
-        @endforeach --}}
+        @endforeach
     </tbody>
     </table>
     </div>
