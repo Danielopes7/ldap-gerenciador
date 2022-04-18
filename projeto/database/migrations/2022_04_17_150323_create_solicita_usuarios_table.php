@@ -16,6 +16,8 @@ class CreateSolicitaUsuariosTable extends Migration
         Schema::create('solicita_usuarios', function (Blueprint $table) {
             $table->id();
             $table->string('nome','80');
+            $table->string('email','80');
+            $table->string('telefone','80');
             $table->timestamps();
         });
     }

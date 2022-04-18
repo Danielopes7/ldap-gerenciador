@@ -14,7 +14,7 @@ class SolicitaUsuarioController extends Controller
      */
     public function index()
     {
-        //
+        return view('solicitacao.index');
     }
 
     /**
@@ -46,7 +46,7 @@ class SolicitaUsuarioController extends Controller
      */
     public function show(SolicitaUsuario $solicitaUsuario)
     {
-        //
+        return view('solicitacao.show');
     }
 
     /**

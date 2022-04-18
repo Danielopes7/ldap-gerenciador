@@ -249,8 +249,14 @@ return [
         ],
         [
             'text' => 'Criar Novo Usuário',
-            'url'  => 'admin/settings',
+            'url'  => '/solicitacao',
             'icon' => 'fas fa-fw fa-plus',
+
+        ],
+        [
+            'text' => 'Usuários solicitados',
+            'url'  => '/solicitacao/show',
+            'icon' => 'fas fa-fw fa-users',
         ],
         // [
         //     'text'    => 'multilevel',
