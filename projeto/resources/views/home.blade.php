@@ -23,7 +23,7 @@
             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">E-mail</th>
             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Status</th>
             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Ações</th>
-            </tr>
+        </tr>
     </thead>
     <tbody>
         {{-- @for ($i = 0; $i < 100; $i++)
@@ -46,21 +46,13 @@
         @endfor --}}
         @foreach ( $objects as $object ) 
             @isset($object->displayname)
-                @if( $object->useraccountcontrol[0]== 512 )
-                    </tr><tr class="odd">
-                @else
-                    </tr><tr class="odd table-danger">   
-                @endif
+                <tr class="{{ ($object->useraccountcontrol[0] == 512) ? '' : 'table-danger' }}">
                     <td>{{ $object->displayname[0] ?? ''}}</td>
                     <td>{{ $object->samaccountname[0] ?? ''}}</td>
                     <td>{{ $object->title[0] ?? ''}}</td>
                     <td>{{ $object->mail[0] ?? ''}}</td>
                     {{-- <td>{{ $object->department[0] ?? ''}}</td>  --}}
-                    @if( $object->useraccountcontrol[0]== 512 )
-                        <td>Ativo</td>
-                    @else
-                        <td>Inativo <i class="fas fa-user-times"></i></td>
-                    @endif 
+                    <td>{{ $object->useraccountcontrol[0] == 512 ? 'Ativo' : "Inativo" }}</td>
                     
                     <td style="display: flex;">
                         <a href="" class="btn btn-info btn-sm">
@@ -70,6 +62,7 @@
                                                     <i class="far fa-edit"></i>
                         </a>
                     </td>
+                </tr>
                     
             @endisset 
         @endforeach
