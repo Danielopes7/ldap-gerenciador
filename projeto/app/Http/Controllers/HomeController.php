@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use Illuminate\Http\Request;
 use App\Ldap\User;
 use LdapRecord\Models\ActiveDirectory\Entry;
@@ -28,7 +28,12 @@ class HomeController extends Controller
         /**
          * uso a classe Entry para pegar todos os dados de uma determinada OU
          */
-        $objects = Entry::in('OU=Supervisão Informatica,OU=Defensoria,DC=dpema,DC=br')->get();
+        $dn = Auth::user()->dn;
+        $explode_dn = explode(',',$dn);
+        array_shift($explode_dn);
+        $explode_dn = implode(',', $explode_dn);
+        // dd($explode_dn);
+        $objects = Entry::in($explode_dn)->get();
         return view('home', ['objects' => $objects, 'request' => $request->all] );
     }
 }
