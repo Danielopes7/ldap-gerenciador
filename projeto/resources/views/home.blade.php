@@ -55,7 +55,7 @@
                     <td>{{ $object->useraccountcontrol[0] == 512 ? 'Ativo' : "Inativo" }}</td>
                     
                     <td style="display: flex;">
-                        <a href="" class="btn btn-info btn-sm">
+                        <a href="" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ModalShow">
                                                     <i class="far fa-eye"></i>
                         </a>
                         <a href="" class="btn btn-info btn-sm" style="background-color: #28a745;border-color: #28a745;">
@@ -63,7 +63,7 @@
                         </a>
                     </td>
                 </tr>
-                    
+                
             @endisset 
         @endforeach
         
@@ -71,7 +71,7 @@
     </table>
     </div>
 </div>
-
+@include('modal.show')
 @stop
 
 @section('css')

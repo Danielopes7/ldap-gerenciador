@@ -23,7 +23,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Request $request)
+    public function index()
     {
         /**
          * uso a classe Entry para pegar todos os dados de uma determinada OU
@@ -34,6 +34,6 @@ class HomeController extends Controller
         $explode_dn = implode(',', $explode_dn);
         // dd($explode_dn);
         $objects = Entry::in($explode_dn)->get();
-        return view('home', ['objects' => $objects, 'request' => $request->all] );
+        return view('home', ['objects' => $objects] );
     }
 }
