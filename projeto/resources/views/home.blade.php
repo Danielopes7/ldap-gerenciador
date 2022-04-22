@@ -44,7 +44,7 @@
             </td>
 
         @endfor --}}
-        @foreach ( $objects as $object ) 
+        @foreach ( $objects as $key => $object) 
             @isset($object->displayname)
                 <tr class="{{ ($object->useraccountcontrol[0] == 512) ? '' : 'table-danger' }}">
                     <td>{{ $object->displayname[0] ?? ''}}</td>
@@ -52,10 +52,10 @@
                     <td>{{ $object->title[0] ?? ''}}</td>
                     <td>{{ $object->mail[0] ?? ''}}</td>
                     {{-- <td>{{ $object->department[0] ?? ''}}</td>  --}}
-                    <td>{{ $object->useraccountcontrol[0] == 512 ? 'Ativo' : "Inativo" }}</td>
+                    <td>{{ $object->useraccountcontrol[0] == 512 ? 'Ativo' : 'Inativo' }}</td>
                     
                     <td style="display: flex;">
-                        <a href="" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ModalShow">
+                        <a href="" class="visualizar btn btn-info btn-sm" data-toggle="modal" data-id="{{ $key }}" data-toggle="ModalShow">
                                                     <i class="far fa-eye"></i>
                         </a>
                         <a href="" class="btn btn-info btn-sm" style="background-color: #28a745;border-color: #28a745;">
@@ -97,5 +97,25 @@
             }
             });
         });
+        $(function() {
+        $('.visualizar').on('click', function(){
+            var id = $(this).data('id'); // vamos buscar o valor do atributo data-id
+            $.ajax({
+                type:'get',
+                url: "{{ route('home.show') }}",
+                data: {
+                    'id' : id,
+                    '_token': $('input[name=_token]').val()                  
+                },
+                dataType: 'json',
+                success:function(data){
+                    console.log(data.cn[0]);
+                    $('#ModalShow').modal("show");
+                    $('.modal-title').html(data.cn[0]);
+                }
+            }); 
+        });
+    });
+
     </script>
 @stop
