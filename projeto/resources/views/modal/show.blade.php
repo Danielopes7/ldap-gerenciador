@@ -11,7 +11,17 @@
                 </div>
                 <div class="modal-body">
                     <div class="col-xs-12 col-sm-12 col-md-12">
-                        
+                    <div class="card-body">
+
+                        <label class="form-label">Nome</label>
+                        <input type="text" class="form-control" value="Daniel Lopes Amorim" readonly>
+
+                        <label class="form-label">Telefone</label>
+                        <input type="text" class="form-control" value="898131056" readonly>
+
+                        <label class="form-label">Email</label>
+                        <input type="text" class="form-control" value="daniel.lopes.amorim@hotmail.com" readonly>
+                    </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">{{ __('Back') }}</button>
