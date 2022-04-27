@@ -38,7 +38,8 @@ class HomeController extends Controller
         return view('home', ['objects' => $objects] );
     }
 
-    public function show(Request $request){
+    public function show(Request $request)
+    {
         $dn = Auth::user()->dn;
         $explode_dn = explode(',',$dn);
         array_shift($explode_dn);
