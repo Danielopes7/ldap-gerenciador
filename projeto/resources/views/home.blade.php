@@ -12,8 +12,6 @@
     <div class="card">
 
 <div class="card-body">
-    {{-- <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"><div class="dt-buttons btn-group flex-wrap">                <button class="btn btn-secondary buttons-csv buttons-html5" style="background-color: blue" tabindex="0" aria-controls="example1" type="button"><span>Doc</span></button> <button class="btn btn-secondary buttons-excel buttons-html5" style="background-color: green" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button> <button class="btn btn-secondary buttons-pdf buttons-html5" style="background-color: red" tabindex="0" aria-controls="example1" type="button"><span>PDF</span></button>  <div class="btn-group"><button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0" aria-controls="example1" type="button" aria-haspopup="true"><span>Column visibility</span></button></div> </div></div><div class="col-sm-12 col-md-6"><div id="example1_filter" class="dataTables_filter float-right"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info"> --}}
-
     <table id="example2" class="table table-hover display nowrap" width="100%">
     <thead>
         <tr role="row">
@@ -80,7 +78,6 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
     <script>
         
         $(function () {
@@ -93,16 +90,18 @@
             "info": true,
             "autoWidth": true,
             "responsive": true,
-
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Portuguese-Brasil.json"
 
             }
             });
         });
+        /**
+            Busco o data-id, que é tratado no HomeController para retornar o objeto que será visualizado no modal
+        */
         $(function() {
         $('.visualizar').on('click', function(){
-            var id = $(this).data('id'); // vamos buscar o valor do atributo data-id
+            var id = $(this).data('id'); 
             $.ajax({
                 type:'get',
                 url: "{{ route('home.show') }}",
