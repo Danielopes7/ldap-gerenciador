@@ -13,6 +13,7 @@ class User extends Authenticatable implements LdapAuthenticatable
 {
     use HasFactory, Notifiable, AuthenticatesWithLdap;
 
+    protected $appends = ['exploded_dn'];
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +22,7 @@ class User extends Authenticatable implements LdapAuthenticatable
     protected $fillable = [
         'name',
         'email',
+        'dn',
         'password',
     ];
 
@@ -41,7 +43,21 @@ class User extends Authenticatable implements LdapAuthenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-    ];
+    ]; 
+
+    public function getExplodedDnAttribute()
+    {   
+        /**
+         * pego o CN do usuário e tiro o nome para ficar só a OU que ele participa
+         * CN=Daniel Lopes Amorim,OU=Supervisão Informatica,OU=Defensoria,DC=dpema,DC=br ->> dado que será tratado
+         * OU=Supervisão Informatica,OU=Defensoria,DC=dpema,DC=br ->> dado retornado
+         * @var string;
+         */
+        $explode_dn = explode(',', $this->dn);
+        array_shift($explode_dn);
+        return implode(',', $explode_dn);
+    }
+
     
 
 }

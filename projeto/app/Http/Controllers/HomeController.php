@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 use Auth;
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Ldap\User;
+
 use LdapRecord\Models\ActiveDirectory\Entry;
 
 class HomeController extends Controller
@@ -28,24 +29,15 @@ class HomeController extends Controller
         /**
          * uso a classe Entry para pegar todos os dados de uma determinada OU
          */
-        $dn = Auth::user()->dn;
-        $explode_dn = explode(',',$dn);
-        array_shift($explode_dn);
-        $explode_dn = implode(',', $explode_dn);
-        // dd($explode_dn);
-        $objects = Entry::in($explode_dn)->get();
-        // dd($objects->get('13'));
+        $dn = Auth::user()->exploded_dn;
+        $objects = Entry::in($dn)->get();
         return view('home', ['objects' => $objects] );
     }
 
     public function show(Request $request)
     {
-        $dn = Auth::user()->dn;
-        $explode_dn = explode(',',$dn);
-        array_shift($explode_dn);
-        $explode_dn = implode(',', $explode_dn);
-        // dd($explode_dn);
-        $objects = Entry::in($explode_dn)->get();
+        $dn = Auth::user()->exploded_dn;
+        $objects = Entry::in($dn)->get();
         return json_encode($objects[$request->id]);
     }
 }
