@@ -30,14 +30,14 @@ class HomeController extends Controller
          * uso a classe Entry para pegar todos os dados de uma determinada OU
          */
         $dn = Auth::user()->exploded_dn;
-        $objects = Entry::in(Auth::user()->dn)->get();
+        $objects = Entry::in($dn)->get();
         return view('home', ['objects' => $objects] );
     }
 
     public function show(Request $request)
     {
         $dn = Auth::user()->exploded_dn;
-        $objects = Entry::in($explode_dn)->get();
+        $objects = Entry::in($dn)->get();
         return json_encode($objects[$request->id]);
     }
 }
